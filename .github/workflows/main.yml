@@ -1,0 +1,46 @@
+name: Publicação automática
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Cria um arquivo temporário para a chave privada
+        run: |
+          echo "${{ secrets.KEY }}" > /tmp/private_key
+          chmod 600 /tmp/private_key
+
+      # Limpar as pastas bin e obj no servidor antes de publicar, para evitar conflitos
+      - name: Limpar pastas bin e obj no servidor
+        run: |
+          ssh -i /tmp/private_key -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null ubuntu@${{ secrets.HOST }} \
+          'rm -rf /home/ubuntu/HelloWorldApp/*'
+
+      # Publicar o projeto no ambiente local (no GitHub Actions runner)
+      - name: Publicar a aplicação localmente
+        run: |
+          dotnet publish -c Release --output ./publish
+
+      # Transferir apenas os arquivos da pasta de publicação (bin/Release/net8.0/publish) para o servidor remoto
+      - name: Transferir arquivos de publicação para o servidor remoto
+        run: |
+          scp -i /tmp/private_key -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -r ./publish/* ubuntu@${{ secrets.HOST }}:/home/ubuntu/HelloWorldApp
+
+      # Reiniciar o serviço Kestrel para aplicar as mudanças
+      - name: Reiniciar o serviço Kestrel
+        run: |
+          ssh -i /tmp/private_key -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null ubuntu@${{ secrets.HOST }} \
+          'sudo systemctl restart kestrel-HelloWorldApp.service'
+
+      # Limpar o arquivo de chave privada após o uso
+      - name: Limpar o arquivo de chave privada
+        run: |
+          rm /tmp/private_key
