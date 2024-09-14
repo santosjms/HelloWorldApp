@@ -1,0 +1,7 @@
+D:\2. Unoeste\1. FIPP\8. Semestre\TÓPICOS EM SISTEMAS DE INFORMAÇÃO I\2. Atividades\Instâncias Servidor Web\HelloWorldApp\HelloWorldApp\bin\Release\net8.0\publish\HelloWorldApp.exe
+D:\2. Unoeste\1. FIPP\8. Semestre\TÓPICOS EM SISTEMAS DE INFORMAÇÃO I\2. Atividades\Instâncias Servidor Web\HelloWorldApp\HelloWorldApp\bin\Release\net8.0\publish\appsettings.Development.json
+D:\2. Unoeste\1. FIPP\8. Semestre\TÓPICOS EM SISTEMAS DE INFORMAÇÃO I\2. Atividades\Instâncias Servidor Web\HelloWorldApp\HelloWorldApp\bin\Release\net8.0\publish\appsettings.json
+D:\2. Unoeste\1. FIPP\8. Semestre\TÓPICOS EM SISTEMAS DE INFORMAÇÃO I\2. Atividades\Instâncias Servidor Web\HelloWorldApp\HelloWorldApp\bin\Release\net8.0\publish\HelloWorldApp.dll
+D:\2. Unoeste\1. FIPP\8. Semestre\TÓPICOS EM SISTEMAS DE INFORMAÇÃO I\2. Atividades\Instâncias Servidor Web\HelloWorldApp\HelloWorldApp\bin\Release\net8.0\publish\HelloWorldApp.deps.json
+D:\2. Unoeste\1. FIPP\8. Semestre\TÓPICOS EM SISTEMAS DE INFORMAÇÃO I\2. Atividades\Instâncias Servidor Web\HelloWorldApp\HelloWorldApp\bin\Release\net8.0\publish\HelloWorldApp.runtimeconfig.json
+D:\2. Unoeste\1. FIPP\8. Semestre\TÓPICOS EM SISTEMAS DE INFORMAÇÃO I\2. Atividades\Instâncias Servidor Web\HelloWorldApp\HelloWorldApp\bin\Release\net8.0\publish\HelloWorldApp.pdb
